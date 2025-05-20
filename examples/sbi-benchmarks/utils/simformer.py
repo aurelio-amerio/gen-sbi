@@ -42,7 +42,7 @@ class MLPEmbedder(nnx.Module):
         return out
 
 class Simformer(nnx.Module):
-    def __init__(self, dim_value, dim_id, dim_condition, dim_joint, *, num_heads=2, transformer_features=10, dropout_rate=0.1,rngs):
+    def __init__(self, dim_value, dim_id, dim_condition, dim_joint, *, num_heads=2, num_layers=6, widening_factor=4, transformer_features=10, num_hidden_layers=1,dropout_rate=0.1,rngs):
         """
         Simformer model for time series forecasting.
         Args:
@@ -60,8 +60,8 @@ class Simformer(nnx.Module):
         self.dim_id = dim_id
         self.dim_condition = dim_condition
 
-        # self.embedding_net_value = MLPEmbedder(in_dim=1, hidden_dim=dim_value, rngs=rngs)
-        self.embedding_net_value = lambda x: jnp.repeat(x, dim_value, axis=-1)
+        self.embedding_net_value = MLPEmbedder(in_dim=1, hidden_dim=dim_value, rngs=rngs)
+        # self.embedding_net_value = lambda x: jnp.repeat(x, dim_value, axis=-1)
 
         fourier_features=128
         self.embedding_time = GaussianFourierEmbedding(fourier_features, rngs=rngs)
@@ -76,11 +76,11 @@ class Simformer(nnx.Module):
             din=self.total_tokens,
             dcontext=fourier_features,
             num_heads=num_heads,
-            num_layers=6,
+            num_layers=num_layers,
             features=transformer_features,
-            widening_factor=4,
+            widening_factor=widening_factor,
             dropout_rate=dropout_rate,
-            num_hidden_layers=1,
+            num_hidden_layers=num_hidden_layers,
             act=jax.nn.gelu,
             skip_connection_attn=True,
             skip_connection_mlp=True,
@@ -96,13 +96,13 @@ class Simformer(nnx.Module):
 
         if x.ndim < 3:
             x = rearrange(x, '... -> 1 ... 1' if x.ndim == 1 else '... -> ... 1')
+        t = t.reshape(-1,1, 1)
 
         batch_size, seq_len, _ = x.shape
         condition_mask = condition_mask.astype(jnp.bool_).reshape(-1,seq_len,1)
         condition_mask = jnp.broadcast_to(condition_mask, (batch_size, seq_len, 1))
         
         node_ids = node_ids.reshape(-1,seq_len)
-        t = t.reshape(-1,1, 1)
 
         time_embeddings = self.embedding_time(t)
 
