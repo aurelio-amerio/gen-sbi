@@ -5,23 +5,43 @@
 * the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
 * the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
 *
-[2025-07-02 12:42:28] info Using GitHub for authentication, run `code tunnel user login --provider <provider>` option to change this.
-To grant access to the server, please log into https://github.com/login/device and use code A93B-A3F0
+[2025-07-07 20:08:16] info Using GitHub for authentication, run `code tunnel user login --provider <provider>` option to change this.
+To grant access to the server, please log into https://github.com/login/device and use code E96B-ECEA
 
 Open this link in your browser https://vscode.dev/tunnel/artemisa_gpu/lhome/ific/a/aamerio/github/GenSBI/sub
 
-[2025-07-02 12:43:10] info [tunnels::connections::relay_tunnel_host] Opened new client on channel 2
-[2025-07-02 12:43:10] info [russh::server] wrote id
-[2025-07-02 12:43:10] info [russh::server] read other id
-[2025-07-02 12:43:10] info [russh::server] session is running
-[2025-07-02 12:43:11] info [rpc.0] Checking /lhome/ific/a/aamerio/.vscode/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/log.txt and /lhome/ific/a/aamerio/.vscode/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/pid.txt for a running server...
-[2025-07-02 12:43:11] info [rpc.0] Starting server...
-[2025-07-02 12:43:11] info [rpc.0] Server started
-[2025-07-02 12:43:16] info [tunnels::connections::relay_tunnel_host] Opened new client on channel 3
-[2025-07-02 12:43:16] info [russh::server] wrote id
-[2025-07-02 12:43:16] info [russh::server] read other id
-[2025-07-02 12:43:16] info [russh::server] session is running
-[2025-07-02 12:43:16] info [tunnels::connections::relay_tunnel_host] Opened new client on channel 4
-[2025-07-02 12:43:16] info [russh::server] wrote id
-[2025-07-02 12:43:16] info [russh::server] read other id
-[2025-07-02 12:43:16] info [russh::server] session is running
+[2025-07-07 20:09:05] info [tunnels::connections::relay_tunnel_host] Opened new client on channel 2
+[2025-07-07 20:09:05] info [russh::server] wrote id
+[2025-07-07 20:09:05] info [russh::server] read other id
+[2025-07-07 20:09:05] info [russh::server] session is running
+[2025-07-07 20:09:06] info [rpc.0] Checking /lhome/ific/a/aamerio/.vscode/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/log.txt and /lhome/ific/a/aamerio/.vscode/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/pid.txt for a running server...
+[2025-07-07 20:09:06] info [rpc.0] Starting server...
+[2025-07-07 20:09:07] info [rpc.0] Server started
+[2025-07-07 20:09:13] info [tunnels::connections::relay_tunnel_host] Opened new client on channel 3
+[2025-07-07 20:09:13] info [tunnels::connections::relay_tunnel_host] Opened new client on channel 4
+[2025-07-07 20:09:13] info [russh::server] wrote id
+[2025-07-07 20:09:13] info [russh::server] wrote id
+[2025-07-07 20:09:13] info [russh::server] read other id
+[2025-07-07 20:09:13] info [russh::server] session is running
+[2025-07-07 20:09:13] info [russh::server] read other id
+[2025-07-07 20:09:13] info [russh::server] session is running
+[2025-07-07 20:09:14] info [rpc.0] Disposed of connection to running server.
+[2025-07-07 20:09:16] info [tunnels::connections::relay_tunnel_host] Opened new client on channel 5
+[2025-07-07 20:09:16] info [russh::server] wrote id
+[2025-07-07 20:09:16] info [russh::server] read other id
+[2025-07-07 20:09:16] info [russh::server] session is running
+[2025-07-07 20:09:17] info [rpc.2] Checking /lhome/ific/a/aamerio/.vscode/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/log.txt and /lhome/ific/a/aamerio/.vscode/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/pid.txt for a running server...
+[2025-07-07 20:09:17] info [rpc.2] Found running server (pid=560719)
+[2025-07-07 20:09:30] info [tunnels::connections::relay_tunnel_host] Opened new client on channel 6
+[2025-07-07 20:09:30] info [russh::server] wrote id
+[2025-07-07 20:09:30] info [tunnels::connections::relay_tunnel_host] Opened new client on channel 7
+[2025-07-07 20:09:30] info [russh::server] wrote id
+[2025-07-07 20:09:30] info [russh::server] read other id
+[2025-07-07 20:09:30] info [russh::server] session is running
+[2025-07-07 20:09:30] info [russh::server] read other id
+[2025-07-07 20:09:30] info [russh::server] session is running
+[2025-07-07 20:09:31] warn [rpc.2] error handling call: NoAttachedServerError(NoAttachedServerError)
+[2025-07-07 20:09:41] warn [rpc.2] error handling call: NoAttachedServerError(NoAttachedServerError)
+[2025-07-07 20:32:12] info [rpc.4] Disposed of connection to running server.
+[2025-07-07 20:32:12] info [rpc.3] Disposed of connection to running server.
+[2025-07-07 20:32:27] info [rpc.2] Disposed of connection to running server.
