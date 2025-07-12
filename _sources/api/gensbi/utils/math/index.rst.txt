@@ -1,0 +1,51 @@
+gensbi.utils.math
+=================
+
+.. py:module:: gensbi.utils.math
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   gensbi.utils.math._divergence_single
+   gensbi.utils.math.divergence
+
+
+Module Contents
+---------------
+
+.. py:function:: _divergence_single(vf, t, x)
+
+.. py:function:: divergence(vf, t, x, args = None)
+
+   
+   Compute the divergence of the vector field vf at point x and time t.
+   :param vf: The vector field function.
+   :type vf: Callable
+   :param x: The point at which to compute the divergence.
+   :type x: Array
+   :param t: The time at which to compute the divergence.
+   :type t: Array
+
+   :returns: The divergence of the vector field at point x and time t.
+   :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+

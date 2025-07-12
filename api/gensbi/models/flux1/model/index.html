@@ -1,0 +1,950 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>gensbi.models.flux1.model &#8212; GenSBI  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/jupyterlite_sphinx.css?v=8ee2c72c" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=3a97f689" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../../_static/copybutton.js?v=18a8d5f5"></script>
+    <script src="../../../../../_static/thebelab-helper.js"></script>
+    <script src="../../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/gensbi/models/flux1/model/index';</script>
+    <link rel="icon" href="../../../../../_static/logo_small.png"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="gensbi.models.simformer" href="../../simformer/index.html" />
+    <link rel="prev" title="gensbi.models.flux1.math" href="../math/index.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/logo_small.png" class="logo__image only-light" alt="GenSBI  documentation - Home"/>
+    <img src="../../../../../_static/logo_small.png" class="logo__image only-dark pst-js-only" alt="GenSBI  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../references.html">
+    References
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    API Documentation
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/aurelio-amerio/GenSBI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../references.html">
+    References
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    API Documentation
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/aurelio-amerio/GenSBI" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diffusion/index.html">gensbi.diffusion</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../diffusion/path/index.html">gensbi.diffusion.path</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../diffusion/path/edm_path/index.html">gensbi.diffusion.path.edm_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../diffusion/path/path/index.html">gensbi.diffusion.path.path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../diffusion/path/path_sample/index.html">gensbi.diffusion.path.path_sample</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../diffusion/path/scheduler/index.html">gensbi.diffusion.path.scheduler</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../diffusion/path/scheduler/edm/index.html">gensbi.diffusion.path.scheduler.edm</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../diffusion/solver/index.html">gensbi.diffusion.solver</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../diffusion/solver/edm_samplers/index.html">gensbi.diffusion.solver.edm_samplers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../diffusion/solver/sde_solver/index.html">gensbi.diffusion.solver.sde_solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../diffusion/solver/solver/index.html">gensbi.diffusion.solver.solver</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../flow_matching/index.html">gensbi.flow_matching</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../flow_matching/loss/index.html">gensbi.flow_matching.loss</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../flow_matching/loss/continuous_loss/index.html">gensbi.flow_matching.loss.continuous_loss</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../flow_matching/path/index.html">gensbi.flow_matching.path</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../flow_matching/path/affine/index.html">gensbi.flow_matching.path.affine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../flow_matching/path/path/index.html">gensbi.flow_matching.path.path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../flow_matching/path/path_sample/index.html">gensbi.flow_matching.path.path_sample</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../flow_matching/path/scheduler/index.html">gensbi.flow_matching.path.scheduler</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../flow_matching/path/scheduler/schedule_transform/index.html">gensbi.flow_matching.path.scheduler.schedule_transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../flow_matching/path/scheduler/scheduler/index.html">gensbi.flow_matching.path.scheduler.scheduler</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../flow_matching/solver/index.html">gensbi.flow_matching.solver</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../flow_matching/solver/ode_solver/index.html">gensbi.flow_matching.solver.ode_solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../flow_matching/solver/sde_solver/index.html">gensbi.flow_matching.solver.sde_solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../flow_matching/solver/solver/index.html">gensbi.flow_matching.solver.solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../flow_matching/solver/utils/index.html">gensbi.flow_matching.solver.utils</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../flow_matching/utils/index.html">gensbi.flow_matching.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../flow_matching/utils/utils/index.html">gensbi.flow_matching.utils.utils</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">gensbi.models</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">gensbi.models.flux1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../layers/index.html">gensbi.models.flux1.layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../loss/index.html">gensbi.models.flux1.loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../math/index.html">gensbi.models.flux1.math</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">gensbi.models.flux1.model</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../simformer/index.html">gensbi.models.simformer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../simformer/embedding/index.html">gensbi.models.simformer.embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../simformer/loss/index.html">gensbi.models.simformer.loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../simformer/simformer/index.html">gensbi.models.simformer.simformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../simformer/transformer/index.html">gensbi.models.simformer.transformer</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../utils/index.html">gensbi.utils</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/math/index.html">gensbi.utils.math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/model_wrapping/index.html">gensbi.utils.model_wrapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utils/plotting/index.html">gensbi.utils.plotting</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">gensbi</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">gensbi.models</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">gensbi.models.flux1</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">gensbi.models.flux1.model</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section id="module-gensbi.models.flux1.model">
+<span id="gensbi-models-flux1-model"></span><h1>gensbi.models.flux1.model<a class="headerlink" href="#module-gensbi.models.flux1.model" title="Link to this heading">#</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gensbi.models.flux1.model.Flux" title="gensbi.models.flux1.model.Flux"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Flux</span></code></a></p></td>
+<td><p>Transformer model for flow matching on sequences.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#gensbi.models.flux1.model.FluxParams" title="gensbi.models.flux1.model.FluxParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluxParams</span></code></a></p></td>
+<td><p>Parameters for the Flux model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#gensbi.models.flux1.model.Identity" title="gensbi.models.flux1.model.Identity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Identity</span></code></a></p></td>
+<td><p>Base class for all neural network modules.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gensbi.models.flux1.model.</span></span><span class="sig-name descname"><span class="pre">Flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">flax.nnx.Module</span></code></p>
+<p>Transformer model for flow matching on sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> (<a class="reference internal" href="#gensbi.models.flux1.model.FluxParams" title="gensbi.models.flux1.model.FluxParams"><em>FluxParams</em></a>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cond_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timesteps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditioned</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guidance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.__call__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obs</strong> (<em>jax.Array</em>)</p></li>
+<li><p><strong>obs_ids</strong> (<em>jax.Array</em>)</p></li>
+<li><p><strong>cond</strong> (<em>jax.Array</em>)</p></li>
+<li><p><strong>cond_ids</strong> (<em>jax.Array</em>)</p></li>
+<li><p><strong>timesteps</strong> (<em>jax.Array</em>)</p></li>
+<li><p><strong>conditioned</strong> (<em>bool</em><em> | </em><em>jax.Array</em>)</p></li>
+<li><p><strong>guidance</strong> (<em>jax.Array</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>jax.Array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.cond_in">
+<span class="sig-name descname"><span class="pre">cond_in</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.cond_in"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.cond_in" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.condition_embedding">
+<span class="sig-name descname"><span class="pre">condition_embedding</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.condition_embedding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.condition_embedding" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.condition_null">
+<span class="sig-name descname"><span class="pre">condition_null</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.condition_null"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.condition_null" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.double_blocks">
+<span class="sig-name descname"><span class="pre">double_blocks</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.double_blocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.double_blocks" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.final_layer">
+<span class="sig-name descname"><span class="pre">final_layer</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.final_layer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.final_layer" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.hidden_size">
+<span class="sig-name descname"><span class="pre">hidden_size</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.hidden_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.hidden_size" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.in_channels">
+<span class="sig-name descname"><span class="pre">in_channels</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.in_channels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.in_channels" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.num_heads">
+<span class="sig-name descname"><span class="pre">num_heads</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.num_heads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.num_heads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.obs_in">
+<span class="sig-name descname"><span class="pre">obs_in</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.obs_in"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.obs_in" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.out_channels">
+<span class="sig-name descname"><span class="pre">out_channels</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.out_channels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.out_channels" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.params">
+<span class="sig-name descname"><span class="pre">params</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.params" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.pe_embedder">
+<span class="sig-name descname"><span class="pre">pe_embedder</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.pe_embedder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.pe_embedder" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.qkv_features">
+<span class="sig-name descname"><span class="pre">qkv_features</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.qkv_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.qkv_features" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.single_blocks">
+<span class="sig-name descname"><span class="pre">single_blocks</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.single_blocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.single_blocks" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.time_in">
+<span class="sig-name descname"><span class="pre">time_in</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.time_in"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.time_in" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.use_rope">
+<span class="sig-name descname"><span class="pre">use_rope</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.use_rope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.use_rope" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Flux.vector_in">
+<span class="sig-name descname"><span class="pre">vector_in</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Flux.vector_in"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Flux.vector_in" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gensbi.models.flux1.model.</span></span><span class="sig-name descname"><span class="pre">FluxParams</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams" title="Link to this definition">#</a></dt>
+<dd><p>Parameters for the Flux model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>in_channels</strong> (<em>int</em>) – Number of input channels.</p></li>
+<li><p><strong>vec_in_dim</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>None</em><em>]</em>) – Dimension of the vector input, if applicable.</p></li>
+<li><p><strong>context_in_dim</strong> (<em>int</em>) – Dimension of the context input.</p></li>
+<li><p><strong>mlp_ratio</strong> (<em>float</em>) – Ratio for the MLP layers.</p></li>
+<li><p><strong>num_heads</strong> (<em>int</em>) – Number of attention heads.</p></li>
+<li><p><strong>depth</strong> (<em>int</em>) – Number of double stream blocks.</p></li>
+<li><p><strong>depth_single_blocks</strong> (<em>int</em>) – Number of single stream blocks.</p></li>
+<li><p><strong>axes_dim</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – Dimensions of the axes for positional encoding.</p></li>
+<li><p><strong>qkv_bias</strong> (<em>bool</em>) – Whether to use bias in QKV layers.</p></li>
+<li><p><strong>rngs</strong> (<em>nnx.Rngs</em>) – Random number generators for initialization.</p></li>
+<li><p><strong>obs_dim</strong> (<em>int</em>) – Observation dimension.</p></li>
+<li><p><strong>cond_dim</strong> (<em>int</em>) – Condition dimension.</p></li>
+<li><p><strong>use_rope</strong> (<em>bool</em>) – Whether to use Rotary Position Embedding (RoPE).</p></li>
+<li><p><strong>theta</strong> (<em>int</em>) – Scaling factor for positional encoding.</p></li>
+<li><p><strong>guidance_embed</strong> (<em>bool</em>) – Whether to use guidance embedding.</p></li>
+<li><p><strong>qkv_multiplier</strong> (<em>int</em>) – Multiplier for QKV features.</p></li>
+<li><p><strong>param_dtype</strong> (<em>DTypeLike</em>) – Data type for model parameters.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.__post_init__">
+<span class="sig-name descname"><span class="pre">__post_init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.__post_init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.__post_init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.axes_dim">
+<span class="sig-name descname"><span class="pre">axes_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.axes_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.axes_dim" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.cond_dim">
+<span class="sig-name descname"><span class="pre">cond_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.cond_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.cond_dim" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.context_in_dim">
+<span class="sig-name descname"><span class="pre">context_in_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.context_in_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.context_in_dim" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.depth">
+<span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.depth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.depth" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.depth_single_blocks">
+<span class="sig-name descname"><span class="pre">depth_single_blocks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.depth_single_blocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.depth_single_blocks" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.guidance_embed">
+<span class="sig-name descname"><span class="pre">guidance_embed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.guidance_embed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.guidance_embed" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.in_channels">
+<span class="sig-name descname"><span class="pre">in_channels</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.in_channels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.in_channels" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.mlp_ratio">
+<span class="sig-name descname"><span class="pre">mlp_ratio</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.mlp_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.mlp_ratio" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.num_heads">
+<span class="sig-name descname"><span class="pre">num_heads</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.num_heads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.num_heads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.obs_dim">
+<span class="sig-name descname"><span class="pre">obs_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.obs_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.obs_dim" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.param_dtype">
+<span class="sig-name descname"><span class="pre">param_dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">jax.typing.DTypeLike</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.param_dtype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.param_dtype" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.qkv_bias">
+<span class="sig-name descname"><span class="pre">qkv_bias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.qkv_bias"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.qkv_bias" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.qkv_multiplier">
+<span class="sig-name descname"><span class="pre">qkv_multiplier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.qkv_multiplier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.qkv_multiplier" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.rngs">
+<span class="sig-name descname"><span class="pre">rngs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">flax.nnx.Rngs</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.rngs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.rngs" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.theta">
+<span class="sig-name descname"><span class="pre">theta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10000</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.theta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.theta" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.use_rope">
+<span class="sig-name descname"><span class="pre">use_rope</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.use_rope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.use_rope" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.FluxParams.vec_in_dim">
+<span class="sig-name descname"><span class="pre">vec_in_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#FluxParams.vec_in_dim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.FluxParams.vec_in_dim" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Identity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gensbi.models.flux1.model.</span></span><span class="sig-name descname"><span class="pre">Identity</span></span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Identity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Identity" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">flax.nnx.Module</span></code></p>
+<p>Base class for all neural network modules.</p>
+<p>Layers and models should subclass this class.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Module</span></code>’s can contain submodules, and in this way can be nested in a tree
+structure. Submodules can be assigned as regular attributes inside the
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code> method.</p>
+<p>You can define arbitrary “forward pass” methods on your <code class="docutils literal notranslate"><span class="pre">Module</span></code> subclass.
+While no methods are special-cased, <code class="docutils literal notranslate"><span class="pre">__call__</span></code> is a popular choice since
+you can call the <code class="docutils literal notranslate"><span class="pre">Module</span></code> directly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">flax</span><span class="w"> </span><span class="kn">import</span> <span class="n">nnx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Model</span><span class="p">(</span><span class="n">nnx</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rngs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="bp">self</span><span class="o">.</span><span class="n">linear1</span> <span class="o">=</span> <span class="n">nnx</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">rngs</span><span class="o">=</span><span class="n">rngs</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="bp">self</span><span class="o">.</span><span class="n">linear2</span> <span class="o">=</span> <span class="n">nnx</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">rngs</span><span class="o">=</span><span class="n">rngs</span><span class="p">)</span>
+<span class="gp">... </span>  <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="n">nnx</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">rngs</span><span class="o">=</span><span class="n">nnx</span><span class="o">.</span><span class="n">Rngs</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="gensbi.models.flux1.model.Identity.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/gensbi/models/flux1/model.html#Identity.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gensbi.models.flux1.model.Identity.__call__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>jax.Array</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>jax.Array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../math/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">gensbi.models.flux1.math</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../simformer/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">gensbi.models.simformer</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux"><code class="docutils literal notranslate"><span class="pre">Flux</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.__call__"><code class="docutils literal notranslate"><span class="pre">Flux.__call__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.cond_in"><code class="docutils literal notranslate"><span class="pre">Flux.cond_in</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.condition_embedding"><code class="docutils literal notranslate"><span class="pre">Flux.condition_embedding</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.condition_null"><code class="docutils literal notranslate"><span class="pre">Flux.condition_null</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.double_blocks"><code class="docutils literal notranslate"><span class="pre">Flux.double_blocks</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.final_layer"><code class="docutils literal notranslate"><span class="pre">Flux.final_layer</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.hidden_size"><code class="docutils literal notranslate"><span class="pre">Flux.hidden_size</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.in_channels"><code class="docutils literal notranslate"><span class="pre">Flux.in_channels</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.num_heads"><code class="docutils literal notranslate"><span class="pre">Flux.num_heads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.obs_in"><code class="docutils literal notranslate"><span class="pre">Flux.obs_in</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.out_channels"><code class="docutils literal notranslate"><span class="pre">Flux.out_channels</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.params"><code class="docutils literal notranslate"><span class="pre">Flux.params</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.pe_embedder"><code class="docutils literal notranslate"><span class="pre">Flux.pe_embedder</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.qkv_features"><code class="docutils literal notranslate"><span class="pre">Flux.qkv_features</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.single_blocks"><code class="docutils literal notranslate"><span class="pre">Flux.single_blocks</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.time_in"><code class="docutils literal notranslate"><span class="pre">Flux.time_in</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.use_rope"><code class="docutils literal notranslate"><span class="pre">Flux.use_rope</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Flux.vector_in"><code class="docutils literal notranslate"><span class="pre">Flux.vector_in</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams"><code class="docutils literal notranslate"><span class="pre">FluxParams</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.__post_init__"><code class="docutils literal notranslate"><span class="pre">FluxParams.__post_init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.axes_dim"><code class="docutils literal notranslate"><span class="pre">FluxParams.axes_dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.cond_dim"><code class="docutils literal notranslate"><span class="pre">FluxParams.cond_dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.context_in_dim"><code class="docutils literal notranslate"><span class="pre">FluxParams.context_in_dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.depth"><code class="docutils literal notranslate"><span class="pre">FluxParams.depth</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.depth_single_blocks"><code class="docutils literal notranslate"><span class="pre">FluxParams.depth_single_blocks</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.guidance_embed"><code class="docutils literal notranslate"><span class="pre">FluxParams.guidance_embed</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.in_channels"><code class="docutils literal notranslate"><span class="pre">FluxParams.in_channels</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.mlp_ratio"><code class="docutils literal notranslate"><span class="pre">FluxParams.mlp_ratio</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.num_heads"><code class="docutils literal notranslate"><span class="pre">FluxParams.num_heads</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.obs_dim"><code class="docutils literal notranslate"><span class="pre">FluxParams.obs_dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.param_dtype"><code class="docutils literal notranslate"><span class="pre">FluxParams.param_dtype</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.qkv_bias"><code class="docutils literal notranslate"><span class="pre">FluxParams.qkv_bias</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.qkv_multiplier"><code class="docutils literal notranslate"><span class="pre">FluxParams.qkv_multiplier</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.rngs"><code class="docutils literal notranslate"><span class="pre">FluxParams.rngs</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.theta"><code class="docutils literal notranslate"><span class="pre">FluxParams.theta</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.use_rope"><code class="docutils literal notranslate"><span class="pre">FluxParams.use_rope</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.FluxParams.vec_in_dim"><code class="docutils literal notranslate"><span class="pre">FluxParams.vec_in_dim</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Identity"><code class="docutils literal notranslate"><span class="pre">Identity</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gensbi.models.flux1.model.Identity.__call__"><code class="docutils literal notranslate"><span class="pre">Identity.__call__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Aurelio Amerio.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

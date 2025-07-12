@@ -1,0 +1,722 @@
+gensbi.flow_matching.path.scheduler.scheduler
+=============================================
+
+.. py:module:: gensbi.flow_matching.path.scheduler.scheduler
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.flow_matching.path.scheduler.scheduler.CondOTScheduler
+   gensbi.flow_matching.path.scheduler.scheduler.ConvexScheduler
+   gensbi.flow_matching.path.scheduler.scheduler.CosineScheduler
+   gensbi.flow_matching.path.scheduler.scheduler.LinearVPScheduler
+   gensbi.flow_matching.path.scheduler.scheduler.PolynomialConvexScheduler
+   gensbi.flow_matching.path.scheduler.scheduler.Scheduler
+   gensbi.flow_matching.path.scheduler.scheduler.SchedulerOutput
+   gensbi.flow_matching.path.scheduler.scheduler.VPScheduler
+
+
+Module Contents
+---------------
+
+.. py:class:: CondOTScheduler
+
+   Bases: :py:obj:`ConvexScheduler`
+
+
+   
+   CondOT Scheduler.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+
+      
+      Scheduler for convex paths.
+
+              Args:
+                  t (Array): times in [0,1], shape (...).
+
+              Returns:
+                  SchedulerOutput: :math:`lpha_t,\sigma_t,
+      rac{\partial}{\partial t}lpha_t,
+      rac{\partial}{\partial t}\sigma_t`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: kappa_inverse(kappa)
+
+      
+      Computes :math:`t` from :math:`\kappa_t`.
+
+      :param kappa: :math:`\kappa`, shape (...)
+      :type kappa: Array
+
+      :returns: t, shape (...)
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+.. py:class:: ConvexScheduler
+
+   Bases: :py:obj:`Scheduler`
+
+
+   
+   Base Scheduler class.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+      :abstractmethod:
+
+
+      
+      Scheduler for convex paths.
+
+              Args:
+                  t (Array): times in [0,1], shape (...).
+
+              Returns:
+                  SchedulerOutput: :math:`lpha_t,\sigma_t,
+      rac{\partial}{\partial t}lpha_t,
+      rac{\partial}{\partial t}\sigma_t`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: kappa_inverse(kappa)
+      :abstractmethod:
+
+
+      
+      Computes :math:`t` from :math:`\kappa_t`.
+
+      :param kappa: :math:`\kappa`, shape (...)
+      :type kappa: Array
+
+      :returns: t, shape (...)
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: snr_inverse(snr)
+
+      
+      Computes :math:`t` from the signal-to-noise ratio :math:`\frac{\alpha_t}{\sigma_t}`.
+
+      :param snr: The signal-to-noise, shape (...)
+      :type snr: Array
+
+      :returns: t, shape (...)
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+.. py:class:: CosineScheduler
+
+   Bases: :py:obj:`Scheduler`
+
+
+   
+   Cosine Scheduler.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+
+      
+      :param t: times in [0,1], shape (...).
+      :type t: Array
+
+      :returns: :math:`\alpha_t,\sigma_t,\frac{\partial}{\partial t}\alpha_t,\frac{\partial}{\partial t}\sigma_t`
+      :rtype: SchedulerOutput
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: snr_inverse(snr)
+
+      
+      Computes :math:`t` from the signal-to-noise ratio :math:`\frac{\alpha_t}{\sigma_t}`.
+
+      :param snr: The signal-to-noise, shape (...)
+      :type snr: Array
+
+      :returns: t, shape (...)
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+.. py:class:: LinearVPScheduler
+
+   Bases: :py:obj:`Scheduler`
+
+
+   
+   Linear Variance Preserving Scheduler.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+
+      
+      :param t: times in [0,1], shape (...).
+      :type t: Array
+
+      :returns: :math:`\alpha_t,\sigma_t,\frac{\partial}{\partial t}\alpha_t,\frac{\partial}{\partial t}\sigma_t`
+      :rtype: SchedulerOutput
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: snr_inverse(snr)
+
+      
+      Computes :math:`t` from the signal-to-noise ratio :math:`\frac{\alpha_t}{\sigma_t}`.
+
+      :param snr: The signal-to-noise, shape (...)
+      :type snr: Array
+
+      :returns: t, shape (...)
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+.. py:class:: PolynomialConvexScheduler(n)
+
+   Bases: :py:obj:`ConvexScheduler`
+
+
+   
+   Polynomial Scheduler.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+
+      
+      Scheduler for convex paths.
+
+              Args:
+                  t (Array): times in [0,1], shape (...).
+
+              Returns:
+                  SchedulerOutput: :math:`lpha_t,\sigma_t,
+      rac{\partial}{\partial t}lpha_t,
+      rac{\partial}{\partial t}\sigma_t`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: kappa_inverse(kappa)
+
+      
+      Computes :math:`t` from :math:`\kappa_t`.
+
+      :param kappa: :math:`\kappa`, shape (...)
+      :type kappa: Array
+
+      :returns: t, shape (...)
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: n
+
+
+.. py:class:: Scheduler
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   
+   Base Scheduler class.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+      :abstractmethod:
+
+
+      
+      :param t: times in [0,1], shape (...).
+      :type t: Array
+
+      :returns: :math:`\alpha_t,\sigma_t,\frac{\partial}{\partial t}\alpha_t,\frac{\partial}{\partial t}\sigma_t`
+      :rtype: SchedulerOutput
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: snr_inverse(snr)
+      :abstractmethod:
+
+
+      
+      Computes :math:`t` from the signal-to-noise ratio :math:`\frac{\alpha_t}{\sigma_t}`.
+
+      :param snr: The signal-to-noise, shape (...)
+      :type snr: Array
+
+      :returns: t, shape (...)
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+.. py:class:: SchedulerOutput
+
+   
+   Represents a sample of a conditional-flow generated probability path.
+
+   .. attribute:: alpha_t
+
+      :math:`\alpha_t`, shape (...).
+
+      :type: Array
+
+   .. attribute:: sigma_t
+
+      :math:`\sigma_t`, shape (...).
+
+      :type: Array
+
+   .. attribute:: d_alpha_t
+
+      :math:`\frac{\partial}{\partial t}\alpha_t`, shape (...).
+
+      :type: Array
+
+   .. attribute:: d_sigma_t
+
+      :math:`\frac{\partial}{\partial t}\sigma_t`, shape (...).
+
+      :type: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:attribute:: alpha_t
+      :type:  jax.Array
+
+
+   .. py:attribute:: d_alpha_t
+      :type:  jax.Array
+
+
+   .. py:attribute:: d_sigma_t
+      :type:  jax.Array
+
+
+   .. py:attribute:: sigma_t
+      :type:  jax.Array
+
+
+.. py:class:: VPScheduler(beta_min = 0.1, beta_max = 20.0)
+
+   Bases: :py:obj:`Scheduler`
+
+
+   
+   Variance Preserving Scheduler.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+
+      
+      :param t: times in [0,1], shape (...).
+      :type t: Array
+
+      :returns: :math:`\alpha_t,\sigma_t,\frac{\partial}{\partial t}\alpha_t,\frac{\partial}{\partial t}\sigma_t`
+      :rtype: SchedulerOutput
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: snr_inverse(snr)
+
+      
+      Computes :math:`t` from the signal-to-noise ratio :math:`\frac{\alpha_t}{\sigma_t}`.
+
+      :param snr: The signal-to-noise, shape (...)
+      :type snr: Array
+
+      :returns: t, shape (...)
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: beta_max
+      :value: 20.0
+
+
+
+   .. py:attribute:: beta_min
+      :value: 0.1
+
+
+

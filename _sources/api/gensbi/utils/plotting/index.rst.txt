@@ -1,0 +1,62 @@
+gensbi.utils.plotting
+=====================
+
+.. py:module:: gensbi.utils.plotting
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   gensbi.utils.plotting.base_color
+   gensbi.utils.plotting.colors
+   gensbi.utils.plotting.hist_color
+   gensbi.utils.plotting.rgb_base
+   gensbi.utils.plotting.transparent_cmap
+   gensbi.utils.plotting.true_val_color
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   gensbi.utils.plotting._parse_range
+   gensbi.utils.plotting._plot_marginals_2d
+   gensbi.utils.plotting._plot_marginals_nd
+   gensbi.utils.plotting.plot_marginals
+   gensbi.utils.plotting.plot_trajectories
+
+
+Module Contents
+---------------
+
+.. py:function:: _parse_range(range_arg, ndim)
+
+.. py:function:: _plot_marginals_2d(data, plot_levels=True, labels=None, gridsize=15, hexbin_kwargs={}, histplot_kwargs={}, range=None, true_param=None, **kwargs)
+
+.. py:function:: _plot_marginals_nd(data, plot_levels=True, labels=None, gridsize=15, hexbin_kwargs={}, histplot_kwargs={}, range=None, true_param=None, **kwargs)
+
+.. py:function:: plot_marginals(data, plot_levels=True, labels=None, gridsize=15, hexbin_kwargs={}, histplot_kwargs={}, range=None, true_param=None, **kwargs)
+
+.. py:function:: plot_trajectories(traj)
+
+.. py:data:: base_color
+   :value: '#CD5656'
+
+
+.. py:data:: colors
+
+.. py:data:: hist_color
+   :value: '#202A44'
+
+
+.. py:data:: rgb_base
+
+.. py:data:: transparent_cmap
+
+.. py:data:: true_val_color
+   :value: '#687FE5'
+
+

@@ -1,0 +1,48 @@
+gensbi.diffusion.solver.solver
+==============================
+
+.. py:module:: gensbi.diffusion.solver.solver
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.diffusion.solver.solver.Solver
+
+
+Module Contents
+---------------
+
+.. py:class:: Solver
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   
+   Abstract base class for solvers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: sample(key, x_1)
+      :abstractmethod:
+
+
+

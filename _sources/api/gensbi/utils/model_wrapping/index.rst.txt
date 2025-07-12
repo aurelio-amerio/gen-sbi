@@ -1,0 +1,280 @@
+gensbi.utils.model_wrapping
+===========================
+
+.. py:module:: gensbi.utils.model_wrapping
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.utils.model_wrapping.GuidedModelWrapper
+   gensbi.utils.model_wrapping.ModelWrapper
+
+
+Module Contents
+---------------
+
+.. py:class:: GuidedModelWrapper(model, cfg_scale=0.7)
+
+   Bases: :py:obj:`ModelWrapper`
+
+
+   
+   This class is used to wrap around another model. We define a call method which returns the model output.
+   Furthermore, we define a vector_field method which computes the vector field of the model,
+   and a divergence method which computes the divergence of the model, in a form useful for diffrax.
+   This is useful for ODE solvers that require the vector field and divergence of the model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(x, t, args=None, **kwargs)
+
+      
+      Compute the guided model output as a weighted sum of conditioned and unconditioned predictions.
+
+      :param x: input data to the model (batch_size, ...).
+      :type x: Array
+      :param t: time (batch_size).
+      :type t: Array
+      :param args: additional information forwarded to the model, e.g., text condition.
+      :param \*\*kwargs: additional keyword arguments.
+
+      :returns: guided model output.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: get_vector_field(**kwargs)
+
+      
+      Compute the guided vector field as a weighted sum of conditioned and unconditioned predictions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: cfg_scale
+      :type:  float
+
+
+.. py:class:: ModelWrapper(model)
+
+   Bases: :py:obj:`flax.nnx.Module`
+
+
+   
+   This class is used to wrap around another model. We define a call method which returns the model output.
+   Furthermore, we define a vector_field method which computes the vector field of the model,
+   and a divergence method which computes the divergence of the model, in a form useful for diffrax.
+   This is useful for ODE solvers that require the vector field and divergence of the model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(x, t, args=None, **kwargs)
+
+      
+      This method defines how inputs should be passed through the wrapped model.
+      Here, we're assuming that the wrapped model takes both :math:`x` and :math:`t` as input,
+      along with any additional keyword arguments.
+
+      Optional things to do here:
+          - check that t is in the dimensions that the model is expecting.
+          - add a custom forward pass logic.
+          - call the wrapped model.
+
+      | given x, t
+      | returns the model output for input x at time t, with extra information `extra`.
+
+      :param x: input data to the model (batch_size, ...).
+      :type x: Array
+      :param t: time (batch_size).
+      :type t: Array
+      :param \*\*extras: additional information forwarded to the model, e.g., text condition.
+
+      :returns: model output.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: _call_model(x, t, args, **kwargs)
+
+      
+      This method is a wrapper around the model's call method. It allows us to pass additional arguments
+      to the model, such as text conditions or other auxiliary information.
+
+      :param x: input data to the model (batch_size, ...).
+      :type x: Array
+      :param t: time (batch_size).
+      :type t: Array
+      :param args: additional information forwarded to the model, e.g., text condition.
+      :param \*\*kwargs: additional keyword arguments.
+
+      :returns: model output.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: get_divergence(**kwargs)
+
+      
+      Compute the divergence of the model.
+
+      :param t: time (batch_size).
+      :type t: Array
+      :param x: input data to the model (batch_size, ...).
+      :type x: Array
+      :param args: additional information forwarded to the model, e.g., text condition.
+
+      :returns: divergence of the model.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: get_vector_field(**kwargs)
+
+      
+      Compute the vector field of the model, properly squeezed for the ODE term.
+
+      :param x: input data to the model (batch_size, ...).
+      :type x: Array
+      :param t: time (batch_size).
+      :type t: Array
+      :param args: additional information forwarded to the model, e.g., text condition.
+
+      :returns: vector field of the model.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: model
+
+

@@ -1,0 +1,369 @@
+gensbi.flow_matching.solver.sde_solver
+======================================
+
+.. py:module:: gensbi.flow_matching.solver.sde_solver
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.flow_matching.solver.sde_solver.BaseSDESolver
+   gensbi.flow_matching.solver.sde_solver.NonSingular
+   gensbi.flow_matching.solver.sde_solver.ZeroEnds
+
+
+Module Contents
+---------------
+
+.. py:class:: BaseSDESolver(velocity_model, mu0, sigma0, eps0 = 1e-05)
+
+   Bases: :py:obj:`gensbi.flow_matching.solver.solver.Solver`
+
+
+   
+   A class to solve ordinary differential equations (ODEs) using a specified velocity model.
+
+   This class utilizes a velocity field model to solve ODEs over a given time grid using numerical ode solvers.
+
+   :param velocity_model: a velocity field model receiving :math:`(x,t)` and returning :math:`u_t(x)`
+   :type velocity_model: Union[ModelWrapper, Callable]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: get_f_tilde()
+      :abstractmethod:
+
+
+      
+      Get the function :math:`        ilde{f}` for the velocity model. See arXiv.2410.02217
+      Also known as the "drift" term in the SDE context.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: get_g_tilde()
+      :abstractmethod:
+
+
+      
+      Get the function :math:`        ilde{g}` for the velocity model. See arXiv.2410.02217
+      Also known as the "diffusion" term in the SDE context.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: get_sampler(args=None, nsteps=300, method='SEA', adaptive=False, **kwargs)
+
+      
+      Stochastic sampler for the SDE.
+      :param args: additional arguments to pass to the velocity model
+      :param nsteps: number of steps for the SDE solver
+      :param method: the method to use for the SDE solver, can be one of "Euler", "SEA", "ShARK". Defaults to "SEA". Euler is the simplest algorithm. SEA (Shifted Euler method) has a better constant factor in the global error and an improved local error. ShARK (Shifted Additive-noise Runge-Kutta) provides a more accurate solution with a higher computational cost, and implements adaptive stepsize control.
+      :param adaptive: whether to use adaptive stepsize control (only for ShARK). Defaults to True.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: get_score(**kwargs)
+
+      
+      Obtain the score function given the velocity model. See arXiv.2410.02217
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: sample(key, nsamples, nsteps = 300, method='SEA', adaptive=True, **kwargs)
+
+      
+      Sample from the SDE using the provided key and number of samples.
+
+      :param key: JAX random key for sampling.
+      :type key: jax.Array
+      :param nsamples: Number of samples to generate.
+      :type nsamples: int
+      :param nsteps: Number of steps for the SDE solver.
+      :type nsteps: int
+      :param \*\*kwargs: Additional arguments to pass to the velocity model.
+
+      :returns: Sampled trajectories from the SDE.
+      :rtype: jax.Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: dim
+
+
+   .. py:attribute:: eps0
+      :value: 1e-05
+
+
+
+   .. py:attribute:: mu0
+
+
+   .. py:attribute:: prior_distribution
+
+
+   .. py:attribute:: sigma0
+
+
+   .. py:attribute:: velocity_model
+
+
+.. py:class:: NonSingular(velocity_model, mu0, sigma0, alpha)
+
+   Bases: :py:obj:`BaseSDESolver`
+
+
+   
+   NonSingular SDE solver.
+
+   From tab 1 of `arXiv:2410.02217 <http://arxiv.org/abs/2410.02217>`_, with change of variable for time: t -> 1-t to match our time notation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: get_f_tilde(**kwargs)
+
+      
+      Get the function :math:`        ilde{f}` for the velocity model. See arXiv.2410.02217
+      Also known as the "drift" term in the SDE context.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: get_g_tilde()
+
+      
+      Get the function :math:`        ilde{g}` for the velocity model. See arXiv.2410.02217
+      Also known as the "diffusion" term in the SDE context.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: alpha
+
+
+.. py:class:: ZeroEnds(velocity_model, mu0, sigma0, alpha, eps0 = 0.001)
+
+   Bases: :py:obj:`BaseSDESolver`
+
+
+   
+   ZeroEnds SDE solver.
+
+   From tab 1 of `arXiv:2410.02217 <http://arxiv.org/abs/2410.02217>`_, with change of variable for time: t -> 1-t to match our time notation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: get_f_tilde(**kwargs)
+
+      
+      Get the function :math:`        ilde{f}` for the velocity model. See arXiv.2410.02217
+      Also known as the "drift" term in the SDE context.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: get_g_tilde()
+
+      
+      Get the function :math:`        ilde{g}` for the velocity model. See arXiv.2410.02217
+      Also known as the "diffusion" term in the SDE context.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: alpha
+
+

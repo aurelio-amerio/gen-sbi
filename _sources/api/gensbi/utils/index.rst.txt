@@ -1,0 +1,17 @@
+gensbi.utils
+============
+
+.. py:module:: gensbi.utils
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/gensbi/utils/math/index
+   /api/gensbi/utils/model_wrapping/index
+   /api/gensbi/utils/plotting/index
+
+

@@ -1,0 +1,82 @@
+gensbi.models.simformer.loss
+============================
+
+.. py:module:: gensbi.models.simformer.loss
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.models.simformer.loss.SimformerCFMLoss
+
+
+Module Contents
+---------------
+
+.. py:class:: SimformerCFMLoss(path, reduction = 'mean')
+
+   Bases: :py:obj:`gensbi.flow_matching.loss.ContinuousFMLoss`
+
+
+   
+   SimformerCFMLoss is a class that computes the continuous flow matching loss for the Simformer model.
+
+   :param path: Probability path for training.
+   :param reduction: Reduction method ('none', 'mean', 'sum').
+   :type reduction: str
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(vf, batch, args = None, condition_mask = None, **kwargs)
+
+      
+      Evaluate the continuous flow matching loss.
+
+      :param vf: Vector field model.
+      :type vf: Callable
+      :param batch: Input data (x_0, x_1, t).
+      :type batch: Tuple[Array, Array, Array]
+      :param args: Additional arguments.
+      :type args: Optional[dict]
+      :param condition_mask: Mask for conditioning.
+      :type condition_mask: Optional[Array]
+      :param \*\*kwargs: Additional keyword arguments.
+
+      :returns: Computed loss.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+

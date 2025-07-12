@@ -1,0 +1,265 @@
+gensbi.models.simformer.embedding
+=================================
+
+.. py:module:: gensbi.models.simformer.embedding
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.models.simformer.embedding.GaussianFourierEmbedding
+   gensbi.models.simformer.embedding.MLPEmbedder
+   gensbi.models.simformer.embedding.SimpleTimeEmbedding
+   gensbi.models.simformer.embedding.SinusoidalEmbedding
+
+
+Module Contents
+---------------
+
+.. py:class:: GaussianFourierEmbedding(output_dim = 128, learnable = False, *, rngs)
+
+   Bases: :py:obj:`flax.nnx.Module`
+
+
+   
+   Base class for all neural network modules.
+
+   Layers and models should subclass this class.
+
+   ``Module``'s can contain submodules, and in this way can be nested in a tree
+   structure. Submodules can be assigned as regular attributes inside the
+   ``__init__`` method.
+
+   You can define arbitrary "forward pass" methods on your ``Module`` subclass.
+   While no methods are special-cased, ``__call__`` is a popular choice since
+   you can call the ``Module`` directly::
+
+     >>> from flax import nnx
+     >>> import jax.numpy as jnp
+
+     >>> class Model(nnx.Module):
+     ...   def __init__(self, rngs):
+     ...     self.linear1 = nnx.Linear(2, 3, rngs=rngs)
+     ...     self.linear2 = nnx.Linear(3, 4, rngs=rngs)
+     ...   def __call__(self, x):
+     ...     x = self.linear1(x)
+     ...     x = nnx.relu(x)
+     ...     x = self.linear2(x)
+     ...     return x
+
+     >>> x = jnp.ones((1, 2))
+     >>> model = Model(rngs=nnx.Rngs(0))
+     >>> y = model(x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+
+
+   .. py:attribute:: B
+
+
+   .. py:attribute:: output_dim
+      :value: 128
+
+
+
+.. py:class:: MLPEmbedder(in_dim, hidden_dim, rngs, param_dtype = jnp.float32)
+
+   Bases: :py:obj:`flax.nnx.Module`
+
+
+   
+   Base class for all neural network modules.
+
+   Layers and models should subclass this class.
+
+   ``Module``'s can contain submodules, and in this way can be nested in a tree
+   structure. Submodules can be assigned as regular attributes inside the
+   ``__init__`` method.
+
+   You can define arbitrary "forward pass" methods on your ``Module`` subclass.
+   While no methods are special-cased, ``__call__`` is a popular choice since
+   you can call the ``Module`` directly::
+
+     >>> from flax import nnx
+     >>> import jax.numpy as jnp
+
+     >>> class Model(nnx.Module):
+     ...   def __init__(self, rngs):
+     ...     self.linear1 = nnx.Linear(2, 3, rngs=rngs)
+     ...     self.linear2 = nnx.Linear(3, 4, rngs=rngs)
+     ...   def __call__(self, x):
+     ...     x = self.linear1(x)
+     ...     x = nnx.relu(x)
+     ...     x = self.linear2(x)
+     ...     return x
+
+     >>> x = jnp.ones((1, 2))
+     >>> model = Model(rngs=nnx.Rngs(0))
+     >>> y = model(x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(x)
+
+
+   .. py:attribute:: in_layer
+
+
+   .. py:attribute:: out_layer
+
+
+   .. py:attribute:: p_skip
+
+
+   .. py:attribute:: silu
+
+
+.. py:class:: SimpleTimeEmbedding
+
+   Bases: :py:obj:`flax.nnx.Module`
+
+
+   
+   Base class for all neural network modules.
+
+   Layers and models should subclass this class.
+
+   ``Module``'s can contain submodules, and in this way can be nested in a tree
+   structure. Submodules can be assigned as regular attributes inside the
+   ``__init__`` method.
+
+   You can define arbitrary "forward pass" methods on your ``Module`` subclass.
+   While no methods are special-cased, ``__call__`` is a popular choice since
+   you can call the ``Module`` directly::
+
+     >>> from flax import nnx
+     >>> import jax.numpy as jnp
+
+     >>> class Model(nnx.Module):
+     ...   def __init__(self, rngs):
+     ...     self.linear1 = nnx.Linear(2, 3, rngs=rngs)
+     ...     self.linear2 = nnx.Linear(3, 4, rngs=rngs)
+     ...   def __call__(self, x):
+     ...     x = self.linear1(x)
+     ...     x = nnx.relu(x)
+     ...     x = self.linear2(x)
+     ...     return x
+
+     >>> x = jnp.ones((1, 2))
+     >>> model = Model(rngs=nnx.Rngs(0))
+     >>> y = model(x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+
+
+.. py:class:: SinusoidalEmbedding(output_dim = 128)
+
+   Bases: :py:obj:`flax.nnx.Module`
+
+
+   
+   Base class for all neural network modules.
+
+   Layers and models should subclass this class.
+
+   ``Module``'s can contain submodules, and in this way can be nested in a tree
+   structure. Submodules can be assigned as regular attributes inside the
+   ``__init__`` method.
+
+   You can define arbitrary "forward pass" methods on your ``Module`` subclass.
+   While no methods are special-cased, ``__call__`` is a popular choice since
+   you can call the ``Module`` directly::
+
+     >>> from flax import nnx
+     >>> import jax.numpy as jnp
+
+     >>> class Model(nnx.Module):
+     ...   def __init__(self, rngs):
+     ...     self.linear1 = nnx.Linear(2, 3, rngs=rngs)
+     ...     self.linear2 = nnx.Linear(3, 4, rngs=rngs)
+     ...   def __call__(self, x):
+     ...     x = self.linear1(x)
+     ...     x = nnx.relu(x)
+     ...     x = self.linear2(x)
+     ...     return x
+
+     >>> x = jnp.ones((1, 2))
+     >>> model = Model(rngs=nnx.Rngs(0))
+     >>> y = model(x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(t)
+
+
+   .. py:attribute:: output_dim
+      :value: 128
+
+
+

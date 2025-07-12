@@ -1,0 +1,48 @@
+gensbi.flow_matching.solver.solver
+==================================
+
+.. py:module:: gensbi.flow_matching.solver.solver
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.flow_matching.solver.solver.Solver
+
+
+Module Contents
+---------------
+
+.. py:class:: Solver
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   
+   Abstract base class for solvers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: sample(x_0)
+      :abstractmethod:
+
+
+

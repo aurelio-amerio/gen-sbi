@@ -1,0 +1,290 @@
+gensbi.models.flux1.model
+=========================
+
+.. py:module:: gensbi.models.flux1.model
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.models.flux1.model.Flux
+   gensbi.models.flux1.model.FluxParams
+   gensbi.models.flux1.model.Identity
+
+
+Module Contents
+---------------
+
+.. py:class:: Flux(params)
+
+   Bases: :py:obj:`flax.nnx.Module`
+
+
+   
+   Transformer model for flow matching on sequences.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(obs, obs_ids, cond, cond_ids, timesteps, conditioned = True, guidance = None)
+
+
+   .. py:attribute:: cond_in
+
+
+   .. py:attribute:: condition_embedding
+
+
+   .. py:attribute:: condition_null
+
+
+   .. py:attribute:: double_blocks
+
+
+   .. py:attribute:: final_layer
+
+
+   .. py:attribute:: hidden_size
+
+
+   .. py:attribute:: in_channels
+
+
+   .. py:attribute:: num_heads
+
+
+   .. py:attribute:: obs_in
+
+
+   .. py:attribute:: out_channels
+
+
+   .. py:attribute:: params
+
+
+   .. py:attribute:: pe_embedder
+
+
+   .. py:attribute:: qkv_features
+
+
+   .. py:attribute:: single_blocks
+
+
+   .. py:attribute:: time_in
+
+
+   .. py:attribute:: use_rope
+
+
+   .. py:attribute:: vector_in
+
+
+.. py:class:: FluxParams
+
+   
+   Parameters for the Flux model.
+
+   :param in_channels: Number of input channels.
+   :type in_channels: int
+   :param vec_in_dim: Dimension of the vector input, if applicable.
+   :type vec_in_dim: Union[int, None]
+   :param context_in_dim: Dimension of the context input.
+   :type context_in_dim: int
+   :param mlp_ratio: Ratio for the MLP layers.
+   :type mlp_ratio: float
+   :param num_heads: Number of attention heads.
+   :type num_heads: int
+   :param depth: Number of double stream blocks.
+   :type depth: int
+   :param depth_single_blocks: Number of single stream blocks.
+   :type depth_single_blocks: int
+   :param axes_dim: Dimensions of the axes for positional encoding.
+   :type axes_dim: list[int]
+   :param qkv_bias: Whether to use bias in QKV layers.
+   :type qkv_bias: bool
+   :param rngs: Random number generators for initialization.
+   :type rngs: nnx.Rngs
+   :param obs_dim: Observation dimension.
+   :type obs_dim: int
+   :param cond_dim: Condition dimension.
+   :type cond_dim: int
+   :param use_rope: Whether to use Rotary Position Embedding (RoPE).
+   :type use_rope: bool
+   :param theta: Scaling factor for positional encoding.
+   :type theta: int
+   :param guidance_embed: Whether to use guidance embedding.
+   :type guidance_embed: bool
+   :param qkv_multiplier: Multiplier for QKV features.
+   :type qkv_multiplier: int
+   :param param_dtype: Data type for model parameters.
+   :type param_dtype: DTypeLike
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __post_init__()
+
+
+   .. py:attribute:: axes_dim
+      :type:  list[int]
+
+
+   .. py:attribute:: cond_dim
+      :type:  int
+
+
+   .. py:attribute:: context_in_dim
+      :type:  int
+
+
+   .. py:attribute:: depth
+      :type:  int
+
+
+   .. py:attribute:: depth_single_blocks
+      :type:  int
+
+
+   .. py:attribute:: guidance_embed
+      :type:  bool
+      :value: False
+
+
+
+   .. py:attribute:: in_channels
+      :type:  int
+
+
+   .. py:attribute:: mlp_ratio
+      :type:  float
+
+
+   .. py:attribute:: num_heads
+      :type:  int
+
+
+   .. py:attribute:: obs_dim
+      :type:  int
+
+
+   .. py:attribute:: param_dtype
+      :type:  jax.typing.DTypeLike
+
+
+   .. py:attribute:: qkv_bias
+      :type:  bool
+
+
+   .. py:attribute:: qkv_multiplier
+      :type:  int
+      :value: 1
+
+
+
+   .. py:attribute:: rngs
+      :type:  flax.nnx.Rngs
+
+
+   .. py:attribute:: theta
+      :type:  int
+      :value: 10000
+
+
+
+   .. py:attribute:: use_rope
+      :type:  bool
+      :value: True
+
+
+
+   .. py:attribute:: vec_in_dim
+      :type:  Union[int, None]
+
+
+.. py:class:: Identity
+
+   Bases: :py:obj:`flax.nnx.Module`
+
+
+   
+   Base class for all neural network modules.
+
+   Layers and models should subclass this class.
+
+   ``Module``'s can contain submodules, and in this way can be nested in a tree
+   structure. Submodules can be assigned as regular attributes inside the
+   ``__init__`` method.
+
+   You can define arbitrary "forward pass" methods on your ``Module`` subclass.
+   While no methods are special-cased, ``__call__`` is a popular choice since
+   you can call the ``Module`` directly::
+
+     >>> from flax import nnx
+     >>> import jax.numpy as jnp
+
+     >>> class Model(nnx.Module):
+     ...   def __init__(self, rngs):
+     ...     self.linear1 = nnx.Linear(2, 3, rngs=rngs)
+     ...     self.linear2 = nnx.Linear(3, 4, rngs=rngs)
+     ...   def __call__(self, x):
+     ...     x = self.linear1(x)
+     ...     x = nnx.relu(x)
+     ...     x = self.linear2(x)
+     ...     return x
+
+     >>> x = jnp.ones((1, 2))
+     >>> model = Model(rngs=nnx.Rngs(0))
+     >>> y = model(x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(x)
+
+

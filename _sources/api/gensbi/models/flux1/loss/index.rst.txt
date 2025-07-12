@@ -1,0 +1,88 @@
+gensbi.models.flux1.loss
+========================
+
+.. py:module:: gensbi.models.flux1.loss
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.models.flux1.loss.FluxCFMLoss
+
+
+Module Contents
+---------------
+
+.. py:class:: FluxCFMLoss(path, reduction='mean', cfg_scale=None)
+
+   Bases: :py:obj:`gensbi.flow_matching.loss.ContinuousFMLoss`
+
+
+   
+   FluxCFMLoss is a class that computes the continuous flow matching loss for the Flux model.
+
+   :param path: Probability path (x-prediction training).
+   :param reduction: Specify the reduction to apply to the output ``'none'`` | ``'mean'`` | ``'sum'``. ``'none'``: no reduction is applied to the output, ``'mean'``: the output is reduced by mean over sequence elements, ``'sum'``: the output is reduced by sum over sequence elements. Defaults to 'mean'.
+   :type reduction: str, optional
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(vf, batch, cond, obs_ids, cond_ids)
+
+      
+      Evaluates the continuous flow matching loss.
+
+      :param vf: The vector field model to evaluate.
+      :type vf: callable
+      :param batch: A tuple containing the input data (x_0, x_1, t).
+      :type batch: tuple
+      :param cond: The conditioning data.
+      :type cond: jnp.ndarray
+      :param obs_ids: The observation IDs.
+      :type obs_ids: jnp.ndarray
+      :param cond_ids: The conditioning IDs.
+      :type cond_ids: jnp.ndarray
+
+      :returns: The computed loss.
+      :rtype: jnp.ndarray
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: cfg_scale
+      :value: None
+
+
+

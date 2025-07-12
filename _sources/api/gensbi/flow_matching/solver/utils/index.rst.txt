@@ -1,0 +1,47 @@
+gensbi.flow_matching.solver.utils
+=================================
+
+.. py:module:: gensbi.flow_matching.solver.utils
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   gensbi.flow_matching.solver.utils.get_nearest_times
+
+
+Module Contents
+---------------
+
+.. py:function:: get_nearest_times(time_grid, t_discretization)
+
+   
+   Find the nearest times in t_discretization for each time in time_grid.
+
+   :param time_grid: Query times to find nearest neighbors for, shape (N,)
+   :type time_grid: Array
+   :param t_discretization: Reference time points to match against, shape (M,)
+   :type t_discretization: Array
+
+   :returns: Nearest times from t_discretization for each point in time_grid, shape (N,)
+   :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+

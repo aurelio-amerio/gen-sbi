@@ -1,0 +1,470 @@
+gensbi.models.simformer
+=======================
+
+.. py:module:: gensbi.models.simformer
+
+.. autoapi-nested-parse::
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/gensbi/models/simformer/embedding/index
+   /api/gensbi/models/simformer/loss/index
+   /api/gensbi/models/simformer/simformer/index
+   /api/gensbi/models/simformer/transformer/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.models.simformer.Simformer
+   gensbi.models.simformer.SimformerCFMLoss
+   gensbi.models.simformer.SimformerConditioner
+   gensbi.models.simformer.SimformerParams
+
+
+Package Contents
+----------------
+
+.. py:class:: Simformer(params)
+
+   Bases: :py:obj:`flax.nnx.Module`
+
+
+   
+   Simformer model for joint density estimation.
+
+   :param params: Parameters for the Simformer model.
+   :type params: SimformerParams
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(x, t, args = None, *, node_ids, condition_mask, edge_mask = None)
+
+      
+      Forward pass of the Simformer model.
+
+      :param x: Input data.
+      :type x: Array
+      :param t: Time steps.
+      :type t: Array
+      :param args: Additional arguments.
+      :type args: Optional[dict]
+      :param node_ids: Node identifiers.
+      :type node_ids: Array
+      :param condition_mask: Mask for conditioning.
+      :type condition_mask: Array
+      :param edge_mask: Mask for edges.
+      :type edge_mask: Optional[Array]
+
+      :returns: Model output.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: condition_embedding
+
+
+   .. py:attribute:: dim_condition
+
+
+   .. py:attribute:: dim_id
+
+
+   .. py:attribute:: dim_value
+
+
+   .. py:attribute:: embedding_net_id
+
+
+   .. py:attribute:: embedding_net_value
+
+
+   .. py:attribute:: embedding_time
+
+
+   .. py:attribute:: output_fn
+
+
+   .. py:attribute:: params
+
+
+   .. py:attribute:: total_tokens
+
+
+   .. py:attribute:: transformer
+
+
+.. py:class:: SimformerCFMLoss(path, reduction = 'mean')
+
+   Bases: :py:obj:`gensbi.flow_matching.loss.ContinuousFMLoss`
+
+
+   
+   SimformerCFMLoss is a class that computes the continuous flow matching loss for the Simformer model.
+
+   :param path: Probability path for training.
+   :param reduction: Reduction method ('none', 'mean', 'sum').
+   :type reduction: str
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(vf, batch, args = None, condition_mask = None, **kwargs)
+
+      
+      Evaluate the continuous flow matching loss.
+
+      :param vf: Vector field model.
+      :type vf: Callable
+      :param batch: Input data (x_0, x_1, t).
+      :type batch: Tuple[Array, Array, Array]
+      :param args: Additional arguments.
+      :type args: Optional[dict]
+      :param condition_mask: Mask for conditioning.
+      :type condition_mask: Optional[Array]
+      :param \*\*kwargs: Additional keyword arguments.
+
+      :returns: Computed loss.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+.. py:class:: SimformerConditioner(model)
+
+   Bases: :py:obj:`flax.nnx.Module`
+
+
+   
+   Module to handle conditioning in the Simformer model.
+
+   :param model: Simformer model instance.
+   :type model: Simformer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: __call__(obs, obs_ids, cond, cond_ids, timesteps, conditioned = True, edge_mask = None)
+
+      
+      Perform inference based on conditioning.
+
+      :param obs: Observations.
+      :type obs: Array
+      :param obs_ids: Observation identifiers.
+      :type obs_ids: Array
+      :param cond: Conditioning values.
+      :type cond: Array
+      :param cond_ids: Conditioning identifiers.
+      :type cond_ids: Array
+      :param timesteps: Time steps.
+      :type timesteps: Array
+      :param conditioned: Whether to perform conditioned inference.
+      :type conditioned: bool
+      :param edge_mask: Mask for edges.
+      :type edge_mask: Optional[Array]
+
+      :returns: Model output.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: conditioned(obs, obs_ids, cond, cond_ids, t, edge_mask = None)
+
+      
+      Perform conditioned inference.
+
+      :param obs: Observations.
+      :type obs: Array
+      :param obs_ids: Observation identifiers.
+      :type obs_ids: Array
+      :param cond: Conditioning values.
+      :type cond: Array
+      :param cond_ids: Conditioning identifiers.
+      :type cond_ids: Array
+      :param t: Time steps.
+      :type t: Array
+      :param edge_mask: Mask for edges.
+      :type edge_mask: Optional[Array]
+
+      :returns: Conditioned output.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: unconditioned(obs, obs_ids, t, edge_mask = None)
+
+      
+      Perform unconditioned inference.
+
+      :param obs: Observations.
+      :type obs: Array
+      :param obs_ids: Observation identifiers.
+      :type obs_ids: Array
+      :param t: Time steps.
+      :type t: Array
+      :param edge_mask: Mask for edges.
+      :type edge_mask: Optional[Array]
+
+      :returns: Unconditioned output.
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: dim_joint
+
+
+   .. py:attribute:: model
+
+
+.. py:class:: SimformerParams
+
+   
+   Parameters for the Simformer model.
+
+   :param rngs: Random number generators for initialization.
+   :type rngs: nnx.Rngs
+   :param dim_value: Dimension of the value embeddings.
+   :type dim_value: int
+   :param dim_id: Dimension of the ID embeddings.
+   :type dim_id: int
+   :param dim_condition: Dimension of the condition embeddings.
+   :type dim_condition: int
+   :param dim_joint: Total dimension of the joint embeddings.
+   :type dim_joint: int
+   :param fourier_features: Number of Fourier features for time embedding.
+   :type fourier_features: int
+   :param num_heads: Number of attention heads.
+   :type num_heads: int
+   :param num_layers: Number of transformer layers.
+   :type num_layers: int
+   :param widening_factor: Widening factor for the transformer.
+   :type widening_factor: int
+   :param qkv_features: Number of features for QKV layers.
+   :type qkv_features: int
+   :param num_hidden_layers: Number of hidden layers in the transformer.
+   :type num_hidden_layers: int
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:attribute:: dim_condition
+      :type:  int
+
+
+   .. py:attribute:: dim_id
+      :type:  int
+
+
+   .. py:attribute:: dim_joint
+      :type:  int
+
+
+   .. py:attribute:: dim_value
+      :type:  int
+
+
+   .. py:attribute:: fourier_features
+      :type:  int
+      :value: 128
+
+
+
+   .. py:attribute:: num_heads
+      :type:  int
+      :value: 4
+
+
+
+   .. py:attribute:: num_hidden_layers
+      :type:  int
+      :value: 1
+
+
+
+   .. py:attribute:: num_layers
+      :type:  int
+      :value: 6
+
+
+
+   .. py:attribute:: qkv_features
+      :type:  int
+      :value: 8
+
+
+
+   .. py:attribute:: rngs
+      :type:  flax.nnx.Rngs
+
+
+   .. py:attribute:: widening_factor
+      :type:  int
+      :value: 3
+
+
+

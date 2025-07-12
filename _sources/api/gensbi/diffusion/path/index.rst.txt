@@ -1,0 +1,149 @@
+gensbi.diffusion.path
+=====================
+
+.. py:module:: gensbi.diffusion.path
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/gensbi/diffusion/path/edm_path/index
+   /api/gensbi/diffusion/path/path/index
+   /api/gensbi/diffusion/path/path_sample/index
+   /api/gensbi/diffusion/path/scheduler/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   gensbi.diffusion.path.EDMPath
+
+
+Package Contents
+----------------
+
+.. py:class:: EDMPath(scheduler)
+
+   Bases: :py:obj:`gensbi.diffusion.path.path.ProbPath`
+
+
+   
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+   .. py:method:: get_loss_fn()
+
+      
+      Returns the loss function for the EDM path.
+
+      :returns: The loss function as provided by the scheduler.
+      :rtype: Callable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: sample(key, x_1, sigma)
+
+      
+      Sample from the EDM probability path.
+
+      :param key: JAX random key.
+      :type key: Array
+      :param x_1: Target data point, shape (batch_size, ...).
+      :type x_1: Array
+      :param sigma: Noise scale, shape (batch_size, ...).
+      :type sigma: Array
+
+      :returns: A sample from the EDM path.
+      :rtype: PathSample
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:method:: sample_sigma(key, batch_size)
+
+      
+      Sample the noise scale sigma from the scheduler.
+
+      :param key: JAX random key.
+      :type key: Array
+      :param batch_size: Number of samples to generate.
+      :type batch_size: int
+
+      :returns: Samples of sigma, shape (batch_size, ...).
+      :rtype: Array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ..
+          !! processed by numpydoc !!
+
+
+   .. py:attribute:: scheduler
+
+
