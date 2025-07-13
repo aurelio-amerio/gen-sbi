@@ -11,7 +11,7 @@ getenv = True
 request_gpus = 1
 
 log                     = condor_logs/logs_tunnel.log
-output                  = condor_logs/outfile.out
+output                  = condor_logs/outfile_tunnel.out
 error                   = condor_logs/errors_tunnel.err
 
 queue
